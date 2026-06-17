@@ -257,7 +257,7 @@ blockquote {
     margin-bottom: 20px;
 }
 
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 12px;
@@ -268,7 +268,7 @@ blockquote {
     font-size: 1rem;
 }
 
-.contact-form input:focus, 
+.contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     border-color: #d97706;
