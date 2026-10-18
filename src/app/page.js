@@ -1,125 +1,74 @@
 import Image from 'next/image';
 
-export const runtime = 'edge'; // Tells Cloudflare to run this on its ultra-fast global edge network
+const services = [
+  { number: '01', title: 'Parts & accessories', text: 'Thoughtfully selected components and accessories to help you build a setup that fits your needs.' },
+  { number: '02', title: 'Custom builds', text: 'Talk through a custom project, component compatibility, and the details that make a setup your own.' },
+  { number: '03', title: 'FFL transfers', text: 'Get guidance on coordinating a firearm transfer and the steps required to complete it responsibly.' },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Header / Navigation */}
-      <header>
+      <header className="site-header">
         <div className="container nav-container">
-          <div className="logo">
-            {/* Next.js Image component pulling your logo from the public/ folder */}
-            <Image 
-              src="/Gnome Tactical.png" 
-              alt="Gnome Tactical LLC Logo" 
-              width={50} 
-              height={50} 
-              priority
-            />
-            <span>Gnome Tactical</span>
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact" className="btn-nav">Contact</a></li>
-            </ul>
+          <a className="brand" href="#home" aria-label="Gnome Tactical home">
+            <Image src="/gnome-tactical.png" alt="Gnome Tactical — Firearm Parts & Accessories" width={160} height={80} priority />
+          </a>
+          <nav aria-label="Main navigation">
+            <a href="#services">Services</a>
+            <a href="#about">Our approach</a>
+            <a className="nav-cta" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-overlay"></div>
-        <div className="container hero-content">
-          <h1>Premium Firearms & Accessories</h1>
-          <p>Engineered for precision. Built for reliability. Gnome Tactical LLC delivers custom manufacturing, parts, and dealer services for the modern marksman.</p>
-          <a href="#services" className="btn-primary">Explore Our Services</a>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="services">
-        <div className="container">
-          <h2 className="section-title">What We Do</h2>
-          <div className="services-grid">
-
-            <div className="service-card">
-              <div className="icon-box">
-                <i className="fa-solid fa-gears"></i>
-              </div>
-              <h3>Firearms Manufacturing</h3>
-              <p>Custom fabrication and assembly of high-tier firearms built to exact tolerances and rigorous performance standards.</p>
+      <main>
+        <section className="hero" id="home">
+          <div className="hero-backdrop" aria-hidden="true" />
+          <div className="container hero-inner">
+            <p className="eyebrow"><span /> Independent. Detail-driven. Ready to help.</p>
+            <h1>Built for the<br /><span>way you shoot.</span></h1>
+            <p className="hero-copy">Firearm parts, accessories, custom builds, and transfer support—with a focus on practical advice and responsible ownership.</p>
+            <div className="hero-actions">
+              <a href="#services" className="button button-primary">Explore services <span aria-hidden="true">↓</span></a>
+              <a href="#about" className="text-link">Meet Gnome Tactical <span aria-hidden="true">→</span></a>
             </div>
-
-            <div className="service-card">
-              <div className="icon-box">
-                <i className="fa-solid fa-screwdriver-wrench"></i>
-              </div>
-              <h3>Parts & Accessories</h3>
-              <p>Enhance your platform with premium components, optics, custom rails, and tactical gear designed to give you the edge.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="icon-box">
-                <i className="fa-solid fa-shield-halved"></i>
-              </div>
-              <h3>Firearms Dealer</h3>
-              <p>Your trusted, fully licensed dealer. We facilitate seamless transfers and source top-tier inventory for our clients.</p>
-            </div>
-
+            <div className="hero-note"><span className="note-mark">GT</span><span>Small stature.<br /><strong>Serious attention to detail.</strong></span></div>
           </div>
-        </div>
-      </section>
+          <div className="hero-index" aria-hidden="true">GNOME TACTICAL <span>—</span> EST. FOR THE DETAIL</div>
+        </section>
 
-      {/* About Section */}
-      <section id="about" className="about">
-        <div className="container about-grid">
-          <div className="about-text">
-            <h2>Small Stature. Massive Firepower.</h2>
-            <p>At Gnome Tactical LLC, we believe that elite performance shouldn't be confined to standard expectations. Whether you are looking for a reliable duty tool, a competitive edge, or custom modifications, our attention to detail ensures your equipment never fails when it matters most.</p>
-            <blockquote>
-              "Compliance & Safety First. All manufacturing and sales strictly adhere to federal, state, and local regulations."
-            </blockquote>
-          </div>
-          <div className="about-image">
-            <Image 
-              src="/Gnome Tactical.png" 
-              alt="Gnome Tactical Core Branding" 
-              width={450} 
-              height={250} 
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="contact">
-        <div className="container">
-          <h2 className="section-title">Get in Touch</h2>
-          <p className="contact-subtitle">Have questions about a build, transfer, or specific parts? Drop us a line.</p>
-
-          <form className="contact-form" action="#" method="POST">
-            <div className="form-group-row">
-              <input type="text" placeholder="First Name" required />
-              <input type="text" placeholder="Last Name" required />
+        <section className="services section-pad" id="services">
+          <div className="container">
+            <div className="section-heading">
+              <div><p className="eyebrow"><span /> What we do</p><h2>Good gear.<br /><span>Good guidance.</span></h2></div>
+              <p className="section-intro">From finding the right component to coordinating a transfer, we make the process straightforward and personal.</p>
             </div>
-            <input type="email" placeholder="Email Address" required />
-            <textarea rows={5} placeholder="How can we help you? (Inquiries, Custom Builds, FFL Transfers)" required></textarea>
-            <button type="submit" className="btn-primary">Send Message</button>
-          </form>
-        </div>
-      </section>
+            <div className="service-grid">
+              {services.map((service) => <article className="service-card" key={service.number}>
+                <span className="service-number">{service.number}</span>
+                <div className="service-arrow" aria-hidden="true">↗</div>
+                <h3>{service.title}</h3><p>{service.text}</p>
+              </article>)}
+            </div>
+            <p className="service-footnote">Services and availability vary by location. All work and transactions are subject to applicable laws and requirements.</p>
+          </div>
+        </section>
 
-      {/* Footer */}
-      <footer>
-        <div className="container footer-content">
-          <p>&copy; 2026 Gnome Tactical LLC. All Rights Reserved.</p>
-          <p className="disclaimer">Must be 21 or older to purchase firearms. All sales are subject to background checks and local laws.</p>
-        </div>
-      </footer>
+        <section className="about section-pad" id="about">
+          <div className="container about-grid">
+            <div className="about-art"><Image src="/gnome-tactical.png" alt="Gnome Tactical emblem and brand artwork" width={960} height={480} sizes="(max-width: 760px) 100vw, 48vw" /><span className="art-caption">THE GNOME TACTICAL STANDARD <span>01 / 03</span></span></div>
+            <div className="about-copy"><p className="eyebrow"><span /> A different kind of shop</p><h2>Small shop.<br /><span>Big on the details.</span></h2><p>Gnome Tactical is built around helpful service, considered recommendations, and a respect for the responsibility that comes with every firearm.</p><p>Whether you’re exploring parts, planning a build, or arranging an FFL transfer, start with a conversation. We’ll help you understand the next steps.</p><a className="text-link" href="#contact">Let’s talk through it <span aria-hidden="true">→</span></a><div className="compliance-note"><span aria-hidden="true">✳</span><p><strong>Safety and compliance come first.</strong><br />All sales, transfers, and services are subject to applicable federal, state, and local laws.</p></div></div>
+          </div>
+        </section>
+
+        <section className="contact section-pad" id="contact">
+          <div className="container contact-inner"><p className="eyebrow"><span /> Start here</p><h2>Have a project<br />in mind?</h2><p>Tell us what you’re looking for and we’ll help you figure out the right next step.</p><a className="button button-primary" href="#services">Explore services <span aria-hidden="true">↗</span></a><small>For product, build, and transfer inquiries.</small></div>
+          <div className="contact-stamp" aria-hidden="true">GNOME<br />TACTICAL<br /><span>BUILT WITH INTENT</span></div>
+        </section>
+      </main>
+
+      <footer><div className="container footer-inner"><a className="footer-brand" href="#home">GNOME <span>TACTICAL</span></a><p>© 2026 Gnome Tactical LLC. All rights reserved.</p><p className="footer-legal">All firearm sales and transfers are subject to applicable laws and background check requirements.</p></div></footer>
     </>
   );
 }
